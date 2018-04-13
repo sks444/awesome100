@@ -2,7 +2,7 @@
 
 set -e -x
 
-mkdir public
+mkdir _site public
 
 python manage.py collectstatic --noinput
 python manage.py distill-local public --force
