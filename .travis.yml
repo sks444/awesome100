@@ -4,5 +4,12 @@ python:
 cache: pip
 install:
   - pip install -r requirements.txt
+
+before_script:
+  - pip install coala-bears
+
 script:
+  - coala --non-interactive -V
+
+after_success:
   - ./.ci/build.sh
