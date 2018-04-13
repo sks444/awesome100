@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 
+from .filters import NoDebugFilter
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -48,6 +50,36 @@ INSTALLED_APPS = [
     'writers',
     'django_distill',
 ]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'noDebugFilter': {
+            '()': NoDebugFilter
+        }
+    },
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+        }
+    },
+    'handlers': {
+        'awesome100Handler': {
+            'class': 'logging.FileHandler',
+            'filename': './_site/awesome100.log',
+            'formatter': 'standard',
+            'filters': ['noDebugFilter'],
+            'level': 'INFO'
+        }
+    },
+    'loggers': {
+        '': {
+            'handlers': ['awesome100Handler'],
+            'level': 'INFO'
+        }
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
