@@ -28,7 +28,7 @@ def import_data(i, actor):
         )
         if created:
             c.save()
-            print('\nContributor, {}, has been saved.'.format(c))
+            print('\nActor, {}, has been saved.'.format(c))
     except Exception as ex:
-        print('\n\nSomething went wrong saving this contributor: {}\n{}'
+        print('\n\nSomething went wrong saving this actor: {}\n{}'
               .format(name, str(ex)))
