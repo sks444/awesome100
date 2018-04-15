@@ -1,3 +1,4 @@
 django<2.0
 requests-html==0.6.6
 djangorestframework==3.8.2
+psycopg2
