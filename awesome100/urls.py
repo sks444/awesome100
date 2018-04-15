@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^admin/', admin.site.urls),
     url('api/', include('actors.urls')),
+    url('api/', include('authors.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
