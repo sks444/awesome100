@@ -1,5 +1,3 @@
-import logging
-
 from requests_html import HTMLSession
 
 from actors.models import Actor
@@ -10,7 +8,6 @@ actor = r.html.find('.lister-item')
 
 
 def import_data(i, actor):
-    logger = logging.getLogger(__name__)
     try:
         rank = i
         url = actor.absolute_links.pop()
@@ -19,7 +16,7 @@ def import_data(i, actor):
         summary = actor.find('p')[1].text
         image_url = actor.find('img')[0].attrs.get('src')
     except Exception as ex:
-        logger.error(ex)
+        print(str(ex))
     try:
         c, created = Actor.objects.get_or_create(
             rank=rank,
@@ -31,8 +28,7 @@ def import_data(i, actor):
         )
         if created:
             c.save()
-            logger.info('Actor, %s has been saved.' % c)
+            print('\nContributor, {}, has been saved.'.format(c))
     except Exception as ex:
-        logger.error(
-            'Something went wrong saving this actor: %s'
-            % (ex))
+        print('\n\nSomething went wrong saving this contributor: {}\n{}'
+              .format(name, str(ex)))

@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 
-from .filters import NoDebugFilter
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -38,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.auth',
     'django.contrib.sessions',
+    'django.contrib.admin',
     'actors',
     'athletes',
     'github_repos',
@@ -50,7 +49,6 @@ INSTALLED_APPS = [
     'python_libraries',
     'songs',
     'writers',
-    'django_distill',
     'rest_framework',
 ]
 
@@ -58,36 +56,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ]
-}
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'noDebugFilter': {
-            '()': NoDebugFilter
-        }
-    },
-    'formatters': {
-        'standard': {
-            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
-        }
-    },
-    'handlers': {
-        'awesome100Handler': {
-            'class': 'logging.FileHandler',
-            'filename': './_site/awesome100.log',
-            'formatter': 'standard',
-            'filters': ['noDebugFilter'],
-            'level': 'INFO'
-        }
-    },
-    'loggers': {
-        '': {
-            'handlers': ['awesome100Handler'],
-            'level': 'INFO'
-        }
-    }
 }
 
 MIDDLEWARE = [
@@ -113,6 +81,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -152,7 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '_site/'
 MEDIA_URL = '/media/'
+STATIC_ROOT = 'static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATICFILES_DIRS = ['static/']
