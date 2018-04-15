@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'actors',
     'athletes',
+    'authors',
     'github_repos',
     'gsoc_orgs',
     'inventions',
