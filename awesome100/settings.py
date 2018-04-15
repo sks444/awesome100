@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'movies',
     'novels',
     'python_libraries',
+    'singers',
     'songs',
     'writers',
     'rest_framework',
