@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('api/', include('actors.urls')),
     url('api/', include('authors.urls')),
+    url('api/', include('movies.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
