@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'python_libraries',
     'singers',
     'songs',
+    'tv_shows',
     'writers',
     'rest_framework',
 ]
