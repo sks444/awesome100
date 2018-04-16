@@ -4,7 +4,7 @@ from tv_shows.get_tv_shows import tv_shows, import_data
 
 
 class Command(BaseCommand):
-    help = 'Import movies data'
+    help = 'Import TvShows data'
 
     TV_SHOWS = staticmethod(tv_shows)
     IMPORT_DATA = staticmethod(import_data)

@@ -4,7 +4,7 @@ from authors.get_authors import authors, import_data
 
 
 class Command(BaseCommand):
-    help = 'Import AffiliatorCommitters data'
+    help = 'Import Authors data'
 
     AUTHORS = staticmethod(authors)
     IMPORT_DATA = staticmethod(import_data)
