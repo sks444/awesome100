@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'gsoc_orgs',
     'inventions',
     'books',
+    'comedians',
     'directors',
     'movies',
     'novels',
