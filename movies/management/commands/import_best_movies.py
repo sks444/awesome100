@@ -4,7 +4,7 @@ from movies.get_movies import movies, import_data
 
 
 class Command(BaseCommand):
-    help = 'Import movies data'
+    help = 'Import Movies data'
 
     MOVIES = staticmethod(movies)
     IMPORT_DATA = staticmethod(import_data)

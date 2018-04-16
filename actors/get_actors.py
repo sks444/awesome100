@@ -4,7 +4,7 @@ from actors.models import Actor
 
 session = HTMLSession()
 r = session.get('http://www.imdb.com/list/ls000034841/')
-actor = r.html.find('.lister-item')
+actors = r.html.find('.lister-item')
 
 
 def import_data(i, actor):
