@@ -6,3 +6,5 @@
 *.orig
 
 _site/
+
+.env
