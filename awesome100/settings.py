@@ -127,5 +127,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
