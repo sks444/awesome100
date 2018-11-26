@@ -14,8 +14,8 @@ def import_data(i, movie):
         url = ('http://www.imdb.com'
                + movie.find('h3')[0].find('a')[0].attrs.get('href'))
         summary = movie.find('p')[1].text
-        rating = movie.find('strong')[0].text
-        image_url = movie.find('img')[0].attrs.get('loadlate')
+        rating = movie.find('span')[8].text
+        image_url1 = movie.find('img')[0].attrs.get('src')
         genre = movie.find('.genre')[0].text
         duration = movie.find('.runtime')[0].text
         actors_and_directors = movie.find('.text-muted')[2].text
@@ -29,7 +29,7 @@ def import_data(i, movie):
             url=url,
             name=name,
             summary=summary,
-            image_url=image_url,
+            image_url=image_url1,
             rating=rating,
             genre=genre,
             duration=duration,
