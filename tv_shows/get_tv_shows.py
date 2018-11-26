@@ -15,13 +15,19 @@ def import_data(i, tv_show):
         url = ('http://www.imdb.com'
                + tv_show.find('h3')[0].find('a')[0].attrs.get('href'))
         summary = tv_show.find('p')[1].text
-        rating = tv_show.find('strong')[0].text
-        image_url = tv_show.find('img')[0].attrs.get('loadlate')
+        rating = tv_show.find('.ipl-rating-star__rating')[0].text
+        image_url = tv_show.find('img')[0].attrs.get('src')
         genre = tv_show.find('.genre')[0].text
-        duration = tv_show.find('.runtime')[0].text
+        try:
+            duration = tv_show.find('.runtime')[0].text
+        except:
+            duration = ''
         actors_and_directors = tv_show.find('.text-muted')[2].text
         votes_and_gross = tv_show.find('.text-muted')[3].text
-        other_info = tv_show.find('.list-description')[0].text
+        try:
+            other_info = tv_show.find('.list-description')[0].text
+        except:
+            other_info = ''
     except Exception as ex:
         print(str(ex))
     try:

@@ -13,7 +13,10 @@ def import_data(i, author):
         url = author.absolute_links.pop()
         name = author.find('a')[1].text
         best_book = author.find('a')[2].text
-        summary = author.find('p')[1].text
+        try:
+            summary = author.find('p')[1].text
+        except Exception as ex:
+            summary = ''
         image_url = author.find('img')[0].attrs.get('src')
     except Exception as ex:
         print(str(ex))
